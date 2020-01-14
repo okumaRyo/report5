@@ -1,10 +1,20 @@
 package jp.ac.uryukyu.ie.e195702;
 
+
+
 public class LivingThing {
     private String name;
     private int hitPoint;
     private int attack;
     private boolean dead;
+
+    /**
+     * HeroとEnemyのステータスメソッド
+     * HeroとEnemyの持っている名前、HP、攻撃力を保存し出力する。
+     * @param name
+     * @param maximumHP
+     * @param attack
+     */
 
     public LivingThing(String name, int maximumHP, int attack){
         this.name = name;
@@ -34,6 +44,12 @@ public class LivingThing {
         return attack;
     }
 
+    /**
+     * 攻撃メソッド
+     * 攻撃する際にランダムの数字のダメージを与える。
+     * @param opponent
+     */
+
 
     public void attack(LivingThing opponent){
         if (!isDead()) {
@@ -42,6 +58,12 @@ public class LivingThing {
             opponent.wounded(damage);
         }
     }
+
+    /**
+     * 生死判定メソッド
+     * Hpが0以下になると死亡したことを表す。
+     * @param damage
+     */
 
     public void wounded(int damage){
         hitPoint -= damage;
